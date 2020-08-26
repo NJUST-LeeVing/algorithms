@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+
+void swap(int* a, int* b) {
+	int* temp;
+	temp = a;
+	a = b; 
+	b = temp;
+}
+
+void print(const int* arr, const int len) {
+	cout << "打印数组：";
+	for (int i = 0; i < len; i++) {
+		cout << arr[i] << "  ";
+	}
+}
+
+void quickSort(int* arr, const int left, const int right) {
+	if (left < right) {
+		int i = left;
+		int j = right + 1;
+		int pivot = arr[left];
+		do
+		{
+			do i++; while (arr[i] < pivot);
+			do j--; while (arr[j] > pivot);
+			if (i < j) swap(arr[i], arr[j]);
+		} while (i < j);
+		swap(arr[left], arr[j]);
+
+		quickSort(arr, left, j - 1);
+		quickSort(arr, j + 1, right);
+	}
+}
+
+int main() {
+	int arr[] = { 1, 0, 9, 3, 2, 6, 8, 7, 5, 4 };
+	int len = sizeof(arr) / sizeof(arr[0]);
+
+	quickSort(arr, 0, len - 1);
+
+	print(arr, len);
+
+	system("pause");
+	return 0;
+}
