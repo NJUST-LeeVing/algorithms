@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int stairs(int steps) {
+	if (steps == 1) {
+		return 1;
+	}
+	else if (steps == 2) {
+		return 2;
+	}
+	else {
+		return stairs(steps - 1) + stairs(steps - 2);
+	}	
+}
+
+int main() {
+	int steps = 30;
+	int ret = stairs(steps);
+	cout << "方法种类：" << ret << endl;
+	system("pause");
+	return 0;
+}
