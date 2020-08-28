@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+
+//案例描述：有1g，2g，3g，5g，10g，20g的砝码。若砝码总重量小于等于1000g，请问有多少种不同的方法？
+
+int removeRepeat(int* array, int len) {
+	int repeattotalNum = 0;
+	for (int i = 0; i < len; i++) {
+		for (int j = 0; j < len; j++) {
+			if (array[i] == array[j] && i != j) {
+				repeattotalNum++;
+			}
+		}
+	}
+	return repeattotalNum;
+}
+
+void test01() {
+	int g1, g2, g3, g5, g10, g20;
+	cin >> g1 >> g2 >> g3 >> g5 >> g10 >> g20;
+	int flag[1002] = {0};
+	
+	for (int i1 = 0; i1 <= g1; i1++) {
+		for (int i2 = 0; i2 <= g2; i2++) {
+			for (int i3 = 0; i3 <= g3; i3++) {
+				for (int i5 = 0; i5 <= g5; i5++) {
+					for (int i10 = 0; i10 <= g10; i10++) {
+						for (int i20 = 0; i20 <= g20; i20++) {
+							int sum = i1 + 2 * i2 + 3 * i3 + 5 * i5 + 10 * i10 + 20 * i20;
+							if (sum <= 1000)	flag[sum] = 1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	int count = 0;
+	for (int i = 1; i <= 1000; i++) {
+		if (flag[i])	count++;
+	}
+	cout << "共有" << count << "次" << endl;
+}
+
+int main() {
+	test01();
+
+	system("pause");
+	return 0;
+}
