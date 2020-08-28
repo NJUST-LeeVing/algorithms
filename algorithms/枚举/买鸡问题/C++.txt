@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+//案例描述：公鸡5元一只，母鸡3元一只，小鸡一元三只。100元买100只鸡，总共有几种买法？
+
+void test01() {
+	int num = 0;
+	for (int i = 1; i < 20; i++) {
+		for (int j = 1; j < 31; j++) {
+			for (int k = 1; k < 99; k++) {
+				if (5 * i + 3 * j + k / 3 == 100 && i + j + k == 100) {
+					cout << "公鸡有" << i << "只，母鸡有" << j << "只，小鸡有" << k << "只" << endl;
+					num++;
+				}
+			}
+		}
+	}
+	cout << "总共有" << num << "种可能。" << endl;
+}
+
+int main() {
+	test01();
+
+	system("pause");
+	return 0;
+}
