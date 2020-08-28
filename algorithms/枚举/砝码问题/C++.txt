@@ -3,18 +3,6 @@ using namespace std;
 
 //案例描述：有1g，2g，3g，5g，10g，20g的砝码。若砝码总重量小于等于1000g，请问有多少种不同的方法？
 
-int removeRepeat(int* array, int len) {
-	int repeattotalNum = 0;
-	for (int i = 0; i < len; i++) {
-		for (int j = 0; j < len; j++) {
-			if (array[i] == array[j] && i != j) {
-				repeattotalNum++;
-			}
-		}
-	}
-	return repeattotalNum;
-}
-
 void test01() {
 	int g1, g2, g3, g5, g10, g20;
 	cin >> g1 >> g2 >> g3 >> g5 >> g10 >> g20;
