@@ -1,0 +1,11 @@
+public class steps {
+    public static void main(String[] args){
+        int methods = mySteps(40);
+        System.out.println(methods);
+    }
+    static int mySteps(int steps){
+        if(steps == 1) return 1;
+        else if(steps == 2) return 2;
+        else return mySteps(steps - 1) + mySteps(steps -2);
+    }
+}
